@@ -8,22 +8,18 @@ import java.util.*;
 
 public class Airport {
 
-
-
-
-
-    private final List<? extends Plane> planes;
+   private final List<? extends Plane> planes;
 
 
     public List<PassengerPlane> getListPassengerPlane() {
         List<? extends Plane> planes = this.planes;
-        List<PassengerPlane> x = new ArrayList<>();
+        List<PassengerPlane> passengerPlanes = new ArrayList<>(); // нафиг он тут ?
         for (Plane p : planes) {
             if (p instanceof PassengerPlane) {
-                x.add((PassengerPlane) p);
+                passengerPlanes.add((PassengerPlane) p);
             }
         }
-        return x;
+        return passengerPlanes;
     }
 
     public List<MilitaryPlane> getListMilitaryPlanes() {
@@ -129,7 +125,7 @@ public class Airport {
                 '}';
     }
 
-    //Constructor
+
     public Airport(List<? extends Plane> planes) {
         this.planes = planes;
     }
