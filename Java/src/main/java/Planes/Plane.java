@@ -1,5 +1,6 @@
 package Planes;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 public abstract class Plane {
@@ -23,7 +24,7 @@ public abstract class Plane {
         return maxSpeed;
     }
 
-    public int GetMaxFlightDistance() {
+    public int getMaxFlightDistance() {
         return maxFlightDistance;
     }
 
@@ -60,4 +61,29 @@ public abstract class Plane {
         result = 31 * result + maxLoadCapacity;
         return result;
     }
-}
+
+
+    public static Comparator<Plane> comparatorByMaxSpeed() {
+        return (o1, o2) -> o1.getMaxSpeedPlane() - o2.getMaxSpeedPlane();
+    }
+
+
+    public static Comparator<Plane> comparatorByMaxLoadCapacity() {
+        return (o1, o2) -> o1.getMaxLoadCapacity() - o2.getMaxLoadCapacity();
+    }
+
+
+    public static Comparator<Plane> comparatorByMaxFlightDistance() {
+        return (Plane o1, Plane o2) -> o1.getMaxFlightDistance() - o2.getMaxFlightDistance();
+    }
+
+
+            }
+
+
+
+
+
+
+
+
