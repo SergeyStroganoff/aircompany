@@ -3,12 +3,12 @@ package Planes;
 import models.ClassificationLevel;
 import models.ExperimentalTypes;
 
-public class experimentalPlane extends Plane {
+public class ExperimentalPlane extends Plane {
 
     private final ExperimentalTypes typeExperimentalPlane;
     private ClassificationLevel classificationLevel;
 
-    public experimentalPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, ExperimentalTypes typeExperimentalPlane, ClassificationLevel classificationLevel) {
+    public ExperimentalPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, ExperimentalTypes typeExperimentalPlane, ClassificationLevel classificationLevel) {
         super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
         this.typeExperimentalPlane = typeExperimentalPlane;
         this.classificationLevel = classificationLevel;
@@ -28,7 +28,7 @@ public class experimentalPlane extends Plane {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        experimentalPlane that = (experimentalPlane) o;
+        ExperimentalPlane that = (ExperimentalPlane) o;
 
         if (typeExperimentalPlane != that.typeExperimentalPlane) return false;
         return classificationLevel == that.classificationLevel;
