@@ -11,7 +11,7 @@ public class Airport {
     private final List<? extends Plane> planes;
 
 
-    public <T> List<T> getListBySubPlane(Class<T> tClass) {   /////////////////////////////////////////////////// new ////
+    public <T> List<T> getListBySubPlane(Class<T> tClass) {
         List<T> listSubPlane = new ArrayList<>();
         for (Plane plane : planes) {
             if (plane.getClass().equals(tClass)) {
