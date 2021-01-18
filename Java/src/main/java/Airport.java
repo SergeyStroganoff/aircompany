@@ -16,6 +16,7 @@ public class Airport {
         for (Plane plane : planes) {
             if (plane.getClass().equals(tClass)) {
                 listSubPlane.add((T) plane);
+
             }
         }
         return listSubPlane;

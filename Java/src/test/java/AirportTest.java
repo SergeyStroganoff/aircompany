@@ -1,7 +1,7 @@
+import Planes.ExperimentalPlane;
 import Planes.MilitaryPlane;
 import Planes.PassengerPlane;
 import Planes.Plane;
-import Planes.ExperimentalPlane;
 import models.ClassificationLevel;
 import models.ExperimentalTypes;
 import models.MilitaryType;
@@ -32,10 +32,12 @@ public class AirportTest {
     );
 
     private static final PassengerPlane planeWithMaxPassengerCapacity = new PassengerPlane("Boeing-747", 980, 16100, 70500, 242);
+    private static final Airport airport = new Airport(planes);
+
 
     @Test
     public void testGetTransportMilitaryPlanes() {
-        Airport airport = new Airport(planes);
+
         List<MilitaryPlane> transportMilitaryPlanes = airport.getTransportMilitaryPlanes();
         boolean hasTransportMilitaryPlane = false;
         for (MilitaryPlane militaryPlane : transportMilitaryPlanes) {
@@ -50,14 +52,14 @@ public class AirportTest {
 
     @Test
     public void testGetPassengerPlaneWithMaxCapacity() {
-        Airport airport = new Airport(planes);
+
         PassengerPlane expectedPlaneWithMaxPassengersCapacity = airport.getPassengerPlaneWithMaxPassengersCapacity();
         Assert.assertEquals(expectedPlaneWithMaxPassengersCapacity, planeWithMaxPassengerCapacity);
     }
 
     @Test
     public void testPlaneMaxLoadCapacityIsHigherThanCurrent() {
-        Airport airport = new Airport(planes);
+
         airport.sortByMaxLoadCapacity();
         List<? extends Plane> planesSortedByMaxLoadCapacity = airport.getPlanes();
 
@@ -75,7 +77,6 @@ public class AirportTest {
 
     @Test
     public void testHasAtLeastOneBomberInMilitaryPlanes() {
-        Airport airport = new Airport(planes);
         List<MilitaryPlane> bomberMilitaryPlanes = airport.getBomberMilitaryPlanes();
         for (MilitaryPlane militaryPlane : bomberMilitaryPlanes) {
             if ((militaryPlane.getTypeOfMilitaryPlane() == MilitaryType.BOMBER)) {
@@ -87,7 +88,6 @@ public class AirportTest {
 
     @Test
     public void testExperimentalPlanesHasClassificationLevelHigherThanUnclassified() {
-        Airport airport = new Airport(planes);
         List<ExperimentalPlane> experimentalPlanes = airport.getListBySubPlane(ExperimentalPlane.class);
         boolean hasUnclassifiedPlanes = false;
         for (ExperimentalPlane experimentalPlane : experimentalPlanes) {
